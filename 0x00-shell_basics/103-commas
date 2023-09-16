@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -name '*' | sort -d | awk '{printf "%s, ", $0} END {print ""}' | sed 's/.\//.\//g' | sed 's/\.\//&\//g' | sed 's/,\s$/\n/'
+find . -maxdepth 1 -name '*' | sort -k1.2n,1 -k1 | awk -F/ '{printf "%s, ", ($2 == "") ? "./" : $2} END {print ""}' | sed 's/, $/\n/'
