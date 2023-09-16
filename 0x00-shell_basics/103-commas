@@ -1,2 +1,2 @@
 #!/bin/bash
-(IFS=,; echo "$(printf '%s\n' .[!.]* * | awk -v ORS= '{print $0", "}')../")
+ls -map
