@@ -1,2 +1,2 @@
 #!/bin/bash
-(ls -Ap1 | awk '{if ($0 == "./" || $0 == "../") {printf "%s, ", $0} else if ($0 ~ /\/$/) {printf "%s/, ", $0} else {printf "%s, ", $0}} END {printf "\n"}'; echo "")
+find . -maxdepth 1 -name '*' | sort -d | awk '{printf "%s, ", $0} END {print ""}' | sed 's/.\//.\//g' | sed 's/\.\//&\//g' | sed 's/,\s$/\n/'
